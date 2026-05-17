@@ -2,7 +2,7 @@ import {IngredientList} from "@/app/result/[uuid]/components/ingredientlist";
 import {InstructionList} from "@/app/result/[uuid]/components/instructionlist";
 import {mapRecipe} from "@/shared/mapper/maprecipe";
 import {NutritionInfo} from "@/app/result/[uuid]/components/nutritioninfo";
-import {RecipeInfo} from "@/app/result/[uuid]/components/recipeinfo";
+import RecipeTitle from "@/app/result/[uuid]/components/recipetitle";
 
 type UrlParams = {
     params: Promise<{ uuid: string }>
@@ -20,39 +20,26 @@ export default async function result({ params }: UrlParams) {
     const recipe = mapRecipe(recipeData)
 
     return (
-        <main className="bg-blue">
-            <div className="flex flex-col items-center justify-center min-h-dvh w-full p-4">
-                <header>
-                    <h1 className="text-2xl font-bold">
-                        {recipe.name}
-                    </h1>
-                    <a href={recipe.url} className="text-sm underline underline-offset-2 text-orange-500 hover:text-orange-300">
-                        View original recipe
-                    </a>
-                </header>
+        <main>
+            <div className="flex flex-col gap-2 items-center justify-center min-h-dvh w-full p-4">
+                <RecipeTitle recipe={recipe} />
 
-
-
-
-                <div>
-                    <p>Recipe Info</p>
-                    <RecipeInfo recipe={recipe} />
+                <div className="flex flex-row gap-2 w-full">
+                    <div className="flex flex-col flex-1 gap-2">
+                        <p>Ingredients</p>
+                        <IngredientList ingredients={recipe.ingredients} />
+                    </div>
+                    <div className="flex flex-col flex-1 gap-2">
+                        <p>Cooking Instructions</p>
+                        <InstructionList instructions={recipe.instructions} />
+                    </div>
                 </div>
-
-                <div>
-                    <p>Ingredients</p>
-                    <IngredientList ingredients={recipe.ingredients} />
-                </div>
-
-                <div>
-                    <p>Cooking Instructions</p>
-                    <InstructionList instructions={recipe.instructions} />
-                </div>
-
-                {recipe.nutrition && <div>
-                    <p>Nutritional information</p>
-                    <NutritionInfo nutrition={recipe.nutrition} />
-                </div>}
+                {recipe.nutrition &&
+                    <div className="flex flex-col w-full">
+                        <p>Nutritional information</p>
+                        <NutritionInfo nutrition={recipe.nutrition} className="flex flex-col flex-1" />
+                    </div>
+                }
             </div>
         </main>
     );

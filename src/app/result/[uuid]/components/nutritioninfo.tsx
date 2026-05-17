@@ -2,13 +2,14 @@
 import {Nutrition} from "@/shared/types/nutrition";
 
 type Properties = {
-    nutrition: Nutrition;
+    nutrition: Nutrition
+    className?: string
 }
 
 
-export function NutritionInfo({ nutrition }: Properties) {
+export function NutritionInfo({ nutrition, className}: Properties) {
     return (
-        <div>
+        <div className={`flex flex-col flex-1 rounded p-2 ring-inset ring-tertiary ring-2 ${className}`}>
             {nutrition.calories && <p>Calories: {nutrition.calories}</p>}
             {nutrition.carbohydrates && <p>Carbohydrates: {nutrition.carbohydrates}</p>}
             {nutrition.cholesterol && <p>Cholesterol: {nutrition.cholesterol}</p>}

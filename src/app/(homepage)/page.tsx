@@ -4,7 +4,7 @@ import Title from "@/shared/components/title";
 export default function Home() {
   return (
     <main>
-        <div className="flex flex-col items-center justify-center min-h-dvh w-full p-4">
+        <div className="flex flex-col gap-3 items-center justify-center min-h-dvh w-full p-4">
 
             <Title>Recipe Optimizer.</Title>
             <RecipeInput placeholder="Enter recipe URL" />
