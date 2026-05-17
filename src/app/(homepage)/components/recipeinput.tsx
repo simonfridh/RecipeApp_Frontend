@@ -18,7 +18,8 @@ export default function RecipeInput({ placeholder, className }: Properties) {
                     rounded text-center ring-inset ring-tertiary
                     ring-2 px-4 py-2 text-1xl
                     md:ring-3 md:px-6 md:py-4 md:text-3xl
-                    focus:outline-none focus:ring-primary`
+                    focus:outline-none focus:ring-primary
+                    ${className}`
                 }
             />
             <Button type="submit">

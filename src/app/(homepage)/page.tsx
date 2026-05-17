@@ -6,7 +6,7 @@ export default function Home() {
     <main>
         <div className="flex flex-col gap-3 items-center justify-center min-h-dvh w-full p-4">
 
-            <Title>Recipe Optimizer.</Title>
+            <Title title={"Recipe Optimizer."}></Title>
             <RecipeInput placeholder="Enter recipe URL" />
 
         </div>
