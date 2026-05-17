@@ -1,5 +1,5 @@
 import { postRecipeUrl } from "../actions/postrecipeurl"
-import Button from "@/shared/components/Button";
+import Button from "@/shared/components/button";
 
 type Properties = {
     placeholder?: string;
@@ -7,12 +7,12 @@ type Properties = {
 
 export default function RecipeInput({ placeholder }: Properties) {
     return (
-        <form action={postRecipeUrl} className="flex gap-1">
+        <form action={postRecipeUrl} className="flex gap-2">
             <input
                 name="recipeUrl"
                 placeholder={placeholder}
                 required
-                className="border-2 border-gray-400 rounded p-1 focus:outline-none focus:border-blue-300"
+                className="rounded border-tertiary border-2 p-3 text-2xl focus:outline-none focus:border-primary text-center"
             />
             <Button type="submit">
                 Optimize

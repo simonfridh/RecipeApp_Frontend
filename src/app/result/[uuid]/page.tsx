@@ -20,15 +20,19 @@ export default async function result({ params }: UrlParams) {
     const recipe = mapRecipe(recipeData)
 
     return (
-        <main className="">
+        <main className="bg-blue">
             <div className="flex flex-col items-center justify-center min-h-dvh w-full p-4">
+                <header>
+                    <h1 className="text-2xl font-bold">
+                        {recipe.name}
+                    </h1>
+                    <a href={recipe.url} className="text-sm underline underline-offset-2 text-orange-500 hover:text-orange-300">
+                        View original recipe
+                    </a>
+                </header>
 
-                <h1 className="text-2xl font-bold">
-                    {recipe.name}
-                </h1>
-                <a href={recipe.url} className="text-sm underline underline-offset-2 text-orange-500 hover:text-orange-300">
-                    View original recipe
-                </a>
+
+
 
                 <div>
                     <p>Recipe Info</p>

@@ -1,6 +1,6 @@
 import React from "react";
 
-type ButtonProperties = {
+type Properties = {
     children: React.ReactNode
     type?: "button" | "submit" | "reset"
     onClick?: () => void
@@ -8,18 +8,21 @@ type ButtonProperties = {
     disabled?: boolean
 }
 
-export default function Button({ children, type = "button", onClick, className = "", disabled = false}: ButtonProperties) {
+export default function Button({ children, type = "button", onClick, className = "", disabled = false}: Properties) {
     return (
         <button
             type={type}
             onClick={onClick}
             disabled={disabled}
-            className={`p-1 border-2 rounded border-blue-300
+            className= {`
+            bg-tertiary
+            rounded
+            px-5 py-3 text-2xl
             transition-all duration-200
-            hover:scale-102
-            active:scale-98
-            
-            ${className}`}
+            hover:scale-103 hover:bg-primary
+            active:scale-97
+            ${className}
+            `}
         >
             {children}
         </button>
