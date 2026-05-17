@@ -1,11 +1,11 @@
 import { postRecipeUrl } from "../actions/postrecipeurl"
 import Button from "@/shared/components/Button";
 
-type Parameter = {
+type Properties = {
     placeholder?: string;
 }
 
-export default function RecipeInput({ placeholder }: Parameter) {
+export default function RecipeInput({ placeholder }: Properties) {
     return (
         <form action={postRecipeUrl} className="flex gap-1">
             <input

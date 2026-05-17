@@ -23,9 +23,9 @@ export async function postRecipeUrl(formData: FormData) {
     }
 
     const data = await response.json()
-    if (!data.id || typeof data.id !== "string") {
-        throw new Error("Recipe ID is missing")
+    if (!data.uuid || typeof data.uuid !== "string") {
+        throw new Error("Recipe uuid is missing")
     }
 
-    redirect(`/result/${data.id}`)
+    redirect(`/result/${data.uuid}`)
 }
