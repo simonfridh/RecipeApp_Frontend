@@ -10,10 +10,12 @@ export function IngredientList({ ingredients,className }: Properties) {
         <ul className={`flex flex-col flex-1 rounded p-2 ring-inset ring-tertiary ring-2 ${className}`}>
             {
                 ingredients.map((ingredient, index) => {
-                    const structuredIngredient = ingredient.name !== null && ingredient.quantity !== null && ingredient.unit !== null
+                    const isStructuredIngredient = ingredient.name !== null && ingredient.quantity !== null && ingredient.unit !== null
                     return (
                         <li key={index}> {
-                            structuredIngredient ? `${ingredient.quantity} ${ingredient.name} ${ingredient.unit}` : ingredient.rawString
+                            isStructuredIngredient
+                                ? `• ${ingredient.quantity} ${ingredient.name} ${ingredient.unit}`
+                                : `• ${ingredient.rawString}`
                         } </li>
                     )
                 })
