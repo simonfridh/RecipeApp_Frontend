@@ -14,7 +14,7 @@ export function IngredientList({ ingredients,className }: Properties) {
                     return (
                         <li key={index}> {
                             isStructuredIngredient
-                                ? `• ${ingredient.quantity} ${ingredient.name} ${ingredient.unit}`
+                                ? `• ${ingredient.quantity} ${ingredient.unit} ${ingredient.name} `
                                 : `• ${ingredient.rawString}`
                         } </li>
                     )
