@@ -2,10 +2,14 @@
 
 import { redirect } from "next/navigation"
 
-export async function postRecipeUrl(formData: FormData) {
+export type PostRecipeUrlActionState = {
+    error?: string
+}
+
+export async function postRecipeUrl(_prevState: PostRecipeUrlActionState, formData: FormData): Promise<PostRecipeUrlActionState> {
     const recipeUrl = formData.get("recipeUrl")
     if (!recipeUrl || typeof recipeUrl !== "string") {
-        throw new Error("Recipe URL is missing")
+        return { error: "Recipe URL is missing" }
     }
 
     const response = await fetch(`${process.env.BACKEND_URL}/recipe/optimize`, {
@@ -19,12 +23,12 @@ export async function postRecipeUrl(formData: FormData) {
     })
     if (!response.ok) {
         const error = await response.json()
-        throw new Error(error.detail)
+        return { error: error.detail }
     }
 
     const data = await response.json()
     if (!data.uuid || typeof data.uuid !== "string") {
-        throw new Error("Recipe uuid is missing")
+        return { error: "Recipe uuid is missing" }
     }
 
     redirect(`/result/${data.uuid}`)

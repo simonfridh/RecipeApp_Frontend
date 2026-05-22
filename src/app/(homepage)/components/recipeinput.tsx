@@ -1,3 +1,7 @@
+"use client"
+
+import {useActionState, useEffect} from "react"
+import { toast } from "sonner"
 import { postRecipeUrl } from "../actions/postrecipeurl"
 import Button from "@/shared/components/button";
 
@@ -7,8 +11,16 @@ type Properties = {
 }
 
 export default function RecipeInput({ placeholder, className }: Properties) {
+
+    const [state, action, isPending] = useActionState(postRecipeUrl, {})
+    useEffect(() => {
+        if(state.error) {
+            toast.error(state.error)
+        }
+    }, [state.error])
+
     return (
-        <form action={postRecipeUrl} className="flex gap-2 w-4/5 max-w-4xl">
+        <form action={action} className="flex gap-2 w-4/5 max-w-4xl">
             <input
                 name="recipeUrl"
                 placeholder={placeholder}
@@ -22,10 +34,9 @@ export default function RecipeInput({ placeholder, className }: Properties) {
                     ${className}`
                 }
             />
-            <Button type="submit">
-                Optimize
+            <Button type="submit" disabled={isPending}>
+                {isPending ? "loading..." : "Optimize"}
             </Button>
         </form>
-
     );
 }
