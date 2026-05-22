@@ -16,6 +16,7 @@ export async function postRecipeUrl(_prevState: PostRecipeUrlActionState, formDa
         }
     }
 
+    let uuid: string
     try {
         const response = await fetch(`${process.env.BACKEND_URL}/recipe/optimize`, {
             method: "POST",
@@ -41,8 +42,7 @@ export async function postRecipeUrl(_prevState: PostRecipeUrlActionState, formDa
                 timestamp: Date.now()
             }
         }
-
-        redirect(`/result/${data.uuid}`)
+        uuid = data.uuid
     }
     catch (error) {
         if (error instanceof Error) {
@@ -56,4 +56,5 @@ export async function postRecipeUrl(_prevState: PostRecipeUrlActionState, formDa
             timestamp: Date.now()
         }
     }
+    redirect(`/result/${uuid}`)
 }

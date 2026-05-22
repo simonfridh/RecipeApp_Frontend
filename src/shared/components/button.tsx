@@ -22,6 +22,7 @@ export default function Button({ children, type = "button", onClick, className =
             transition-all duration-200
             hover:scale-103 hover:bg-primary
             active:scale-97
+            disabled:bg-surface-bright
             ${className}
             `}
         >

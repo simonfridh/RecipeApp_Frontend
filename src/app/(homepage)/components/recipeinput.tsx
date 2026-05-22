@@ -17,14 +17,14 @@ export default function RecipeInput({ placeholder, className }: Properties) {
         if(state.error) {
             toast.error(state.error)
         }
-    }, [state.error])
+    }, [state.error, state.timestamp])
 
     return (
         <form action={action} className="flex gap-2 w-4/5 max-w-4xl">
             <input
                 name="recipeUrl"
                 placeholder={placeholder}
-                required
+                autoComplete="off"
                 className={`
                     flex-1
                     rounded text-center ring-inset ring-tertiary
