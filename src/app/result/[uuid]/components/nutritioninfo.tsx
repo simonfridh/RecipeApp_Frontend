@@ -15,6 +15,7 @@ export function NutritionInfo({ nutrition, className}: Properties) {
             {nutrition.cholesterol && <p>Cholesterol: {nutrition.cholesterol}</p>}
             {nutrition.fat && <p>Fat: {nutrition.fat}</p>}
             {nutrition.fiber && <p>Fiber: {nutrition.fiber}</p>}
+            {nutrition.protein && <p>Protein: {nutrition.protein}</p>}
             {nutrition.saturatedFat && <p>Saturated Fat: {nutrition.saturatedFat}</p>}
             {nutrition.sodium && <p>Sodium: {nutrition.sodium}</p>}
             {nutrition.sugar && <p>Sugar: {nutrition.sugar}</p>}
