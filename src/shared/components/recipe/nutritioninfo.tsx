@@ -1,5 +1,4 @@
-
-import {Nutrition} from "@/shared/types/nutrition";
+import {Nutrition} from "src/shared/types/nutrition";
 
 type Properties = {
     nutrition: Nutrition

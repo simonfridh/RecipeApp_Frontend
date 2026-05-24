@@ -8,7 +8,7 @@ type Properties = {
     disabled?: boolean
 }
 
-export default function Button({ children, type = "button", onClick, className = "", disabled = false}: Properties) {
+export function Button({ children, type = "button", onClick, className = "", disabled = false}: Properties) {
     return (
         <button
             type={type}

@@ -1,4 +1,4 @@
-import {Ingredient} from "@/shared/types/ingredient";
+import {Ingredient} from "src/shared/types/ingredient";
 
 type Properties = {
     ingredients: Ingredient[]

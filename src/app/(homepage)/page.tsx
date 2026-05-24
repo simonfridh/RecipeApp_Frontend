@@ -1,5 +1,5 @@
-import RecipeInput from './components/recipeinput'
-import Title from "@/shared/components/title";
+import { RecipeInput } from './_components/recipeinput'
+import { Title } from "@/shared/components/title";
 
 export default function Home() {
   return (

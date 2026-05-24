@@ -1,5 +1,4 @@
-import React from "react";
-import {Recipe} from "@/shared/types/recipe";
+import {Recipe} from "src/shared/types/recipe";
 
 
 type Properties = {
@@ -7,7 +6,7 @@ type Properties = {
     className?: string
 }
 
-export default function RecipeTitle({ recipe,className }: Properties) {
+export function RecipeTitle({ recipe,className }: Properties) {
     return (
         <div className={`flex flex-col gap-0 items-center justify-center p-4 ${className}`}>
             <h1 className="text-2xl md:text-2xl font-bold">

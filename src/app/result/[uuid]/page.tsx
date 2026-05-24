@@ -1,8 +1,8 @@
-import {IngredientList} from "@/app/result/[uuid]/components/ingredientlist";
-import {InstructionList} from "@/app/result/[uuid]/components/instructionlist";
-import {mapRecipe} from "@/shared/mapper/maprecipe";
-import {NutritionInfo} from "@/app/result/[uuid]/components/nutritioninfo";
-import RecipeTitle from "@/app/result/[uuid]/components/recipetitle";
+import { mapRecipe } from "@/shared/mapper/maprecipe";
+import { IngredientList } from "@/shared/components/recipe/ingredientlist";
+import { InstructionList } from "@/shared/components/recipe/instructionlist";
+import { NutritionInfo } from "@/shared/components/recipe/nutritioninfo";
+import { RecipeTitle } from "@/shared/components/recipe/recipetitle";
 
 type UrlParams = {
     params: Promise<{ uuid: string }>

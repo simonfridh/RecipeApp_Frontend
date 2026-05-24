@@ -1,16 +1,16 @@
 "use client"
 
-import {useActionState, useEffect} from "react"
+import { useActionState, useEffect } from "react"
 import { toast } from "sonner"
-import { postRecipeUrl } from "../actions/postrecipeurl"
-import Button from "@/shared/components/button";
+import { postRecipeUrl } from "../_actions/postrecipeurl"
+import { Button } from "@/shared/components/button";
 
 type Properties = {
     placeholder?: string;
     className?: string;
 }
 
-export default function RecipeInput({ placeholder, className }: Properties) {
+export function RecipeInput({ placeholder, className }: Properties) {
 
     const [state, action, isPending] = useActionState(postRecipeUrl, {})
     useEffect(() => {

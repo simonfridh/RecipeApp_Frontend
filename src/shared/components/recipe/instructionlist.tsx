@@ -1,4 +1,4 @@
-import {Instruction} from "@/shared/types/instruction";
+import {Instruction} from "src/shared/types/instruction";
 
 type Properties = {
     instructions: Instruction[]
