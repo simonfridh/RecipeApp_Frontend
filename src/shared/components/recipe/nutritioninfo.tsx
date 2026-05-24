@@ -1,3 +1,4 @@
+import {twMerge} from "tailwind-merge";
 import {Nutrition} from "src/shared/types/nutrition";
 
 type Properties = {
@@ -8,7 +9,7 @@ type Properties = {
 
 export function NutritionInfo({ nutrition, className}: Properties) {
     return (
-        <div className={`flex flex-col flex-1 rounded p-2 ring-inset ring-tertiary ring-2 ${className}`}>
+        <div className={twMerge("flex flex-col flex-1 rounded p-2 ring-inset ring-tertiary ring-2", className)}>
             {nutrition.calories && <p>Calories: {nutrition.calories}</p>}
             {nutrition.carbohydrates && <p>Carbohydrates: {nutrition.carbohydrates}</p>}
             {nutrition.cholesterol && <p>Cholesterol: {nutrition.cholesterol}</p>}

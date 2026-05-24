@@ -1,3 +1,4 @@
+import {twMerge} from "tailwind-merge";
 import {Recipe} from "src/shared/types/recipe";
 
 
@@ -8,19 +9,31 @@ type Properties = {
 
 export function RecipeTitle({ recipe,className }: Properties) {
     return (
-        <div className={`flex flex-col gap-0 items-center justify-center p-4 ${className}`}>
+        <div className={twMerge("flex flex-col gap-0 items-center justify-center",className)}>
             <h1 className="text-2xl md:text-2xl font-bold">
                 {recipe.name}
             </h1>
             <div className="flex flex-row gap-2">
                 {recipe.recipeCategory && <p>{recipe.recipeCategory} |</p>}
-                {recipe.totalTime && <p>Estimated time: {recipe.totalTime} |</p>}
+                {recipe.totalTime && <p>Estimated time: {formatTotalTime(recipe.totalTime)} |</p>}
                 {recipe.recipeCuisine && <p>{recipe.recipeCuisine} |</p>}
                 {recipe.recipeYield && <p>Yields: {recipe.recipeYield}</p>}
             </div>
-            <a href={recipe.url} className="text-sm underline underline-offset-2 text-primary hover:text-secondary">
-                View original recipe
-            </a>
         </div>
     )
+}
+
+function formatTotalTime(totalTime: string): string {
+    const regex = /PT(?:(\d+)H)?(?:(\d+)M)?/
+    const match = totalTime.match(regex)
+    if (!match) return totalTime;
+
+    const hours = match[1]
+        ? `${match[1]} ${match[1] == "1" ? "hour" : "hours"}`
+        : ""
+    const minutes = match[2]
+        ? `${match[2]} ${match[2] == "1" ? "minute" : "minutes"}`
+        : ""
+
+    return `${hours} ${minutes}`;
 }

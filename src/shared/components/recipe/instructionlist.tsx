@@ -1,3 +1,4 @@
+import {twMerge} from "tailwind-merge";
 import {Instruction} from "src/shared/types/instruction";
 
 type Properties = {
@@ -8,8 +9,7 @@ type Properties = {
 export function InstructionList({ instructions, className }: Properties) {
     return(
         <ul
-            className={`flex flex-col flex-1 rounded p-2 ring-inset ring-tertiary ring-2 ${className}`
-            }
+            className={twMerge("flex flex-col flex-1 rounded p-2 ring-inset ring-tertiary ring-2", className)}
         >
             {
                 instructions.map((instruction) => {
