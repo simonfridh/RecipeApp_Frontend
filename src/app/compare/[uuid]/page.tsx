@@ -23,13 +23,14 @@ export default async function compare({ params }: UrlParams) {
     }
     const generatedRecipe = mapRecipe(comparisonData.generated_recipe)
     const originalRecipe = mapRecipe(comparisonData.original_recipe)
+    const similarity = parseFloat(comparisonData.similarity)
 
     return (
         <main>
             <div className="flex flex-col gap-2 items-center justify-center min-h-dvh w-full p-6">
                 <div className="flex flex-row gap-2 w-full">
-                    <RecipeTitle recipe={generatedRecipe} className="flex-1"/>
-                    <RecipeTitle recipe={originalRecipe} className="flex-1" />
+                    <RecipeTitle recipe={generatedRecipe} similarity={similarity} className="flex-1"/>
+                    <RecipeTitle recipe={originalRecipe} similarity={1} className="flex-1" />
                 </div>
 
                 <div className="flex flex-row gap-2 w-full">

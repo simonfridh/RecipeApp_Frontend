@@ -3,11 +3,12 @@ import {Recipe} from "src/shared/types/recipe";
 
 
 type Properties = {
-    recipe: Recipe;
+    recipe: Recipe
+    similarity?: number
     className?: string
 }
 
-export function RecipeTitle({ recipe,className }: Properties) {
+export function RecipeTitle({ recipe, similarity,className }: Properties) {
     return (
         <div className={twMerge("flex flex-col gap-0 items-center justify-center",className)}>
             <h1 className="text-2xl md:text-2xl font-bold">
@@ -18,6 +19,9 @@ export function RecipeTitle({ recipe,className }: Properties) {
                 {recipe.totalTime && <p>Estimated time: {formatTotalTime(recipe.totalTime)} |</p>}
                 {recipe.recipeCuisine && <p>{recipe.recipeCuisine} |</p>}
                 {recipe.recipeYield && <p>Yields: {recipe.recipeYield}</p>}
+            </div>
+            <div>
+                {similarity && <p>{similarity != 1 ? "Semantic similarity to original: " + (Math.round(similarity*100)) + "%" : "Original Recipe"}</p>}
             </div>
         </div>
     )

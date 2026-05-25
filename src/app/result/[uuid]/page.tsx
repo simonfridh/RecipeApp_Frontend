@@ -17,13 +17,14 @@ export default async function result({ params }: UrlParams) {
         throw new Error(error.detail)
     }
     const recipeData = await response.json()
-    const recipe = mapRecipe(recipeData)
+    const recipe = mapRecipe(recipeData.generated_recipe)
+    const similarity = parseFloat(recipeData.similarity)
 
     return (
         <main>
             <div className="flex flex-col gap-2 items-center justify-center min-h-dvh w-full p-6">
                 <div className="flex flex-col gap-0 items-center justify-center">
-                    <RecipeTitle recipe={recipe} />
+                    <RecipeTitle recipe={recipe} similarity={similarity} />
                     <div className="flex flex-row gap-2">
                         <a href={recipe.url} className="text-sm underline underline-offset-2 text-primary hover:text-secondary">
                             View original recipe
