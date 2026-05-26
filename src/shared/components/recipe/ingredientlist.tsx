@@ -13,11 +13,12 @@ export function IngredientList({ ingredients,className }: Properties) {
                 ingredients.map((ingredient, index) => {
                     const isStructuredIngredient = ingredient.name !== null && ingredient.quantity !== null && ingredient.unit !== null
                     return (
-                        <li key={index}> {
-                            isStructuredIngredient
-                                ? `• ${ingredient.quantity} ${ingredient.unit} ${ingredient.name} `
-                                : `• ${ingredient.rawString}`
-                        } </li>
+                        <li key={index}>
+                            {`• ${ingredient.rawString} `}
+                            {isStructuredIngredient
+                                ? `(${ingredient.quantity} ${ingredient.unit} ${ingredient.name})`
+                                :""}
+                        </li>
                     )
                 })
             }
