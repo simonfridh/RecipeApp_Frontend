@@ -14,7 +14,7 @@ export function IngredientList({ ingredients,className }: Properties) {
                     return (
                         <li key={index}>
                             {`• ${ingredient.rawString} `}
-                            `({ingredient.quantity} {ingredient.unit} {ingredient.name})`
+                            {`(${ingredient.quantity} ${ingredient.unit} ${ingredient.name})`}
                         </li>
                     )
                 })
