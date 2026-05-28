@@ -18,7 +18,7 @@ export function RecipeTitle({ recipe, similarity,className }: Properties) {
                 {recipe.recipeCategory && <p>{recipe.recipeCategory} |</p>}
                 {recipe.totalTime && <p>Estimated time: {formatTotalTime(recipe.totalTime)} |</p>}
                 {recipe.recipeCuisine && <p>{recipe.recipeCuisine} |</p>}
-                {recipe.recipeYield && <p>Yields: {recipe.recipeYield}</p>}
+                {recipe.recipeYield && <p>Yields: {recipe.recipeYield} servings</p>}
             </div>
             <div>
                 {similarity && <p>{similarity != 1 ? "Semantic similarity to original: " + (Math.round(similarity*100)) + "%" : "Original Recipe"}</p>}
