@@ -3,4 +3,5 @@ export type Ingredient = {
     name: string | null
     quantity: string | null
     unit: string | null
+    gramsEstimate: number | null
 }

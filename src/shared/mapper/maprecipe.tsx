@@ -27,6 +27,7 @@ function mapIngredient(data: unknown): Ingredient  {
         name: typeof ingredientData.name === "string" ? ingredientData.name : null,
         quantity: typeof ingredientData.quantity === "string" ? ingredientData.quantity : null,
         unit: typeof ingredientData.unit === "string" ? ingredientData.unit : null,
+        gramsEstimate: typeof ingredientData.grams_estimate === "number" ? ingredientData.grams_estimate : null,
     }
 }
 
