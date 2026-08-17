@@ -1,6 +1,6 @@
 1. Install Node.js (https://nodejs.org/en)
    
-2. Set up the Backend server (https://github.com/simonfridh/RecipeApp_Backend)
+2. Set up and start the Backend server (https://github.com/simonfridh/RecipeApp_Backend)
    
 3. If you have hosted the backend server on a URL that is NOT ```http://127.0.0.1:8000``` open ```.env.local``` and change the ```BACKEND_URL``` to the URL you are using.
    
