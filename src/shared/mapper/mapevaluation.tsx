@@ -1,38 +1,35 @@
-import {Nutrition} from "@/shared/types/nutrition";
 
+import {mapNutrition} from "@/shared/mapper/mapnutrition";
+import {Evaluation} from "@/shared/types/evaluation";
+import {NutritionChanges} from "@/shared/types/nutritionchanges";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function mapEvalNutrition(data: unknown): Nutrition {
-    const nutritionData = data as Record<string, unknown>
+export function mapEvaluation(data: unknown): Evaluation {
+    const evaluationData = data as Record<string, unknown>
     return {
-        calories: typeof nutritionData.calories === "string" ? nutritionData.calories : null,
-        carbohydrates: typeof nutritionData.carbohydrates === "string" ? nutritionData.carbohydrates : null,
-        cholesterol: typeof nutritionData.cholesterol === "string" ? nutritionData.cholesterol : null,
-        fat: typeof nutritionData.fat === "string" ? nutritionData.fat : null,
-        fiber: typeof nutritionData.fiber === "string" ? nutritionData.fiber : null,
-        protein: typeof nutritionData.protein === "string" ? nutritionData.protein : null,
-        saturatedFat: typeof nutritionData.saturated_fat === "string" ? nutritionData.saturated_fat : null,
-        sodium: typeof nutritionData.sodium === "string" ? nutritionData.sodium : null,
-        sugar: typeof nutritionData.sugar === "string" ? nutritionData.sugar : null,
-        transFat: typeof nutritionData.trans_fat === "string" ? nutritionData.trans_fat : null,
-        unsaturatedFat: typeof nutritionData.unsaturated_fat ==="string" ? nutritionData.unsaturated_fat : null,
+        originalWebNutrition: evaluationData.original_web_nutrition !== null && typeof evaluationData.original_web_nutrition === "object" ? mapNutrition(evaluationData.original_web_nutrition) : null,
+        generatedAiNutrition: evaluationData.generated_ai_nutrition !== null && typeof evaluationData.generated_ai_nutrition === "object" ? mapNutrition(evaluationData.generated_ai_nutrition) : null,
+        originalCalculatedNutrition: evaluationData.original_calculated_nutrition !== null && typeof evaluationData.original_calculated_nutrition === "object" ? mapNutrition(evaluationData.original_calculated_nutrition) : null,
+        generatedCalculatedNutrition: evaluationData.generated_calculated_nutrition !== null && typeof evaluationData.generated_calculated_nutrition === "object" ? mapNutrition(evaluationData.generated_calculated_nutrition) : null,
+        aiNutritionChanges: evaluationData.ai_nutrition_changes !== null && typeof evaluationData.ai_nutrition_changes === "object" ? mapNutritionChanges(evaluationData.ai_nutrition_changes) : null,
+        calculatedNutritionChanges: evaluationData.calculated_nutrition_changes !== null && typeof evaluationData.calculated_nutrition_changes === "object" ? mapNutritionChanges(evaluationData.calculated_nutrition_changes) : null,
+        cosineSimilarity: typeof evaluationData.cosine_similarity === "number" ? evaluationData.cosine_similarity : null,
+        ingredientOverlap: typeof evaluationData.ingredient_overlap === "number" ? evaluationData.ingredient_overlap : null,
+    }
+}
+
+function mapNutritionChanges(data: unknown): NutritionChanges {
+    const nutritionChangeData = data as Record<string, unknown>
+    return {
+        calories: typeof nutritionChangeData.calories === "number" ? nutritionChangeData.calories : null,
+        carbohydrates: typeof nutritionChangeData.carbohydrates === "number" ? nutritionChangeData.carbohydrates : null,
+        cholesterol: typeof nutritionChangeData.cholesterol === "number" ? nutritionChangeData.cholesterol : null,
+        fat: typeof nutritionChangeData.fat === "number" ? nutritionChangeData.fat : null,
+        fiber: typeof nutritionChangeData.fiber === "number" ? nutritionChangeData.fiber : null,
+        protein: typeof nutritionChangeData.protein === "number" ? nutritionChangeData.protein : null,
+        saturatedFat: typeof nutritionChangeData.saturated_fat === "number" ? nutritionChangeData.saturated_fat : null,
+        sodium: typeof nutritionChangeData.sodium === "number" ? nutritionChangeData.sodium : null,
+        sugar: typeof nutritionChangeData.sugar === "number" ? nutritionChangeData.sugar : null,
+        transFat: typeof nutritionChangeData.trans_fat === "number" ? nutritionChangeData.trans_fat : null,
+        unsaturatedFat: typeof nutritionChangeData.unsaturated_fat === "number" ? nutritionChangeData.unsaturated_fat : null,
     }
 }

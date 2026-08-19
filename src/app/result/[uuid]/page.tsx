@@ -32,6 +32,10 @@ export default async function result({ params }: UrlParams) {
                         <a href={"/compare/"+uuid} className="text-sm underline underline-offset-2 text-primary hover:text-secondary">
                             Compare with original recipe
                         </a>
+                        <p>|</p>
+                        <a href={"/evaluation/"+uuid} className="text-sm underline underline-offset-2 text-primary hover:text-secondary">
+                            Evaluation
+                        </a>
                     </div>
 
                 </div>
