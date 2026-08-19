@@ -1,5 +1,5 @@
-import {twMerge} from "tailwind-merge";
-import {Recipe} from "src/shared/types/recipe";
+import {twMerge} from "tailwind-merge"
+import {Recipe} from "src/shared/types/recipe"
 
 
 type Properties = {
@@ -21,7 +21,7 @@ export function RecipeTitle({ recipe, similarity,className }: Properties) {
                 {recipe.recipeYield && <p>Yields: {recipe.recipeYield} servings</p>}
             </div>
             <div>
-                {similarity && <p>{similarity != 1 ? "Semantic similarity to original: " + (Math.round(similarity*100)) + "%" : "Original Recipe"}</p>}
+                {similarity && <p>{similarity != 1 ? "Similarity to original: " + (Math.round(similarity*100)) + "%" : "Original Recipe"}</p>}
             </div>
         </div>
     )

@@ -1,8 +1,7 @@
-import { mapRecipe } from "@/shared/mapper/maprecipe";
-import { IngredientList } from "@/shared/components/recipe/ingredientlist";
-import { InstructionList } from "@/shared/components/recipe/instructionlist";
-import { NutritionInfo } from "@/shared/components/recipe/nutritioninfo";
-import { RecipeTitle } from "@/shared/components/recipe/recipetitle";
+import { mapRecipe } from "@/shared/mapper/maprecipe"
+import { RecipeTitle } from "@/shared/components/recipe/recipetitle"
+import { ClickableInstructionList } from "@/app/result/[uuid]/_components/clickableinstructionlist"
+import { IngredientCardList } from "@/app/result/[uuid]/_components/ingredientcardlist"
 
 type UrlParams = {
     params: Promise<{ uuid: string }>
@@ -36,23 +35,18 @@ export default async function result({ params }: UrlParams) {
                     </div>
 
                 </div>
-                <div className="flex flex-row gap-2 w-full">
-                    <div className="flex flex-col flex-1 gap-2">
+                <div className="flex flex-row gap-8 w-full">
+                    <div className="flex flex-col flex-3 gap-2">
                         <p>Ingredients</p>
-                        <IngredientList ingredients={recipe.ingredients} />
+                        <IngredientCardList ingredients={recipe.ingredients} />
                     </div>
-                    <div className="flex flex-col flex-1 gap-2">
-                        <p>Cooking Instructions</p>
-                        <InstructionList instructions={recipe.instructions} />
+                    <div className="flex flex-col flex-5 gap-2">
+                        <p className="text-right">Cooking Instructions</p>
+                        <ClickableInstructionList instructions={recipe.instructions} />
                     </div>
                 </div>
-                {recipe.nutrition &&
-                    <div className="flex flex-col w-full">
-                        <p>Nutritional information</p>
-                        <NutritionInfo nutrition={recipe.nutrition} />
-                    </div>
-                }
+
             </div>
         </main>
-    );
+    )
 }

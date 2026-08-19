@@ -1,5 +1,5 @@
-import {twMerge} from "tailwind-merge";
-import {Instruction} from "src/shared/types/instruction";
+import {twMerge} from "tailwind-merge"
+import {Instruction} from "src/shared/types/instruction"
 
 type Properties = {
     instructions: Instruction[]

@@ -1,13 +1,13 @@
 "use client"
-import {twMerge} from "tailwind-merge";
+import {twMerge} from "tailwind-merge"
 import { useActionState, useEffect } from "react"
 import { toast } from "sonner"
 import { postRecipeUrl } from "../_actions/postrecipeurl"
-import { Button } from "@/shared/components/button";
+import { Button } from "@/shared/components/button"
 
 type Properties = {
-    placeholder?: string;
-    className?: string;
+    placeholder?: string
+    className?: string
 }
 
 export function RecipeInput({ placeholder, className }: Properties) {
@@ -23,8 +23,10 @@ export function RecipeInput({ placeholder, className }: Properties) {
         <form action={action} className={twMerge("flex gap-2 w-4/5 max-w-4xl",className)}>
             <input
                 name="recipeUrl"
+                type="url"
+                required
                 placeholder={placeholder}
-                autoComplete="off"
+                autoComplete="url"
                 className={`
                     flex-1
                     rounded text-center ring-inset ring-tertiary
@@ -37,5 +39,5 @@ export function RecipeInput({ placeholder, className }: Properties) {
                 {isPending ? "loading..." : "Optimize"}
             </Button>
         </form>
-    );
+    )
 }
