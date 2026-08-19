@@ -1,8 +1,7 @@
-import { mapRecipe } from "@/shared/mapper/maprecipe";
-import { IngredientList } from "@/shared/components/recipe/ingredientlist";
-import { InstructionList } from "@/shared/components/recipe/instructionlist";
-import { NutritionInfo } from "@/shared/components/recipe/nutritioninfo";
-import { RecipeTitle } from "@/shared/components/recipe/recipetitle";
+import { mapRecipe } from "@/shared/mapper/maprecipe"
+import { IngredientList } from "@/shared/components/recipe/ingredientlist"
+import { InstructionList } from "@/shared/components/recipe/instructionlist"
+import { RecipeTitle } from "@/shared/components/recipe/recipetitle"
 
 type UrlParams = {
     params: Promise<{ uuid: string }>
@@ -53,26 +52,7 @@ export default async function compare({ params }: UrlParams) {
                         <InstructionList instructions={originalRecipe.instructions} />
                     </div>
                 </div>
-
-                <div className="flex flex-row gap-2 w-full">
-                    <div className="flex flex-col flex-1 gap-2">
-                        {generatedRecipe.nutrition &&
-                            <div className="flex flex-col flex-1">
-                                <p>Nutritional information</p>
-                                <NutritionInfo nutrition={generatedRecipe.nutrition} />
-                            </div>
-                        }
-                    </div>
-                    <div className="flex flex-col flex-1 gap-2">
-                        {originalRecipe.nutrition &&
-                            <div className="flex flex-col flex-1">
-                                <p>Nutritional information</p>
-                                <NutritionInfo nutrition={originalRecipe.nutrition} />
-                            </div>
-                        }
-                    </div>
-                </div>
             </div>
         </main>
-    );
+    )
 }

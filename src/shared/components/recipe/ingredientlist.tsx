@@ -1,5 +1,5 @@
-import {twMerge} from "tailwind-merge";
-import {Ingredient} from "src/shared/types/ingredient";
+import {twMerge} from "tailwind-merge"
+import {Ingredient} from "src/shared/types/ingredient"
 
 type Properties = {
     ingredients: Ingredient[]
@@ -14,7 +14,6 @@ export function IngredientList({ ingredients,className }: Properties) {
                     return (
                         <li key={index}>
                             {`• ${ingredient.rawString} `}
-                            {`(${ingredient.name}`}{ingredient.gramsEstimate && `, ${ingredient.gramsEstimate}g`}{')'}
                         </li>
                     )
                 })

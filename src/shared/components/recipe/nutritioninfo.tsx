@@ -1,5 +1,5 @@
-import {twMerge} from "tailwind-merge";
-import {Nutrition} from "src/shared/types/nutrition";
+import {twMerge} from "tailwind-merge"
+import {Nutrition} from "src/shared/types/nutrition"
 
 type Properties = {
     nutrition: Nutrition

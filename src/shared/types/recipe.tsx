@@ -1,6 +1,6 @@
-import {Ingredient} from "@/shared/types/ingredient";
-import {Instruction} from "@/shared/types/instruction";
-import {Nutrition} from "@/shared/types/nutrition";
+import {Ingredient} from "@/shared/types/ingredient"
+import {Instruction} from "@/shared/types/instruction"
+import {Nutrition} from "@/shared/types/nutrition"
 
 export type Recipe = {
     name: string
